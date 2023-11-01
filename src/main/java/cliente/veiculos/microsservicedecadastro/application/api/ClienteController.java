@@ -43,4 +43,12 @@ public class ClienteController {
         log.info("[finish] ClienteController - buscaPorCPF");
         return clienteDetalhado;
     }
+    @PutMapping(value = "/{cpf}")
+    @ResponseStatus(code = HttpStatus.OK)
+    void atualizaInformacoes(@PathVariable String cpf, @Valid @RequestBody ClienteAtualizaRequest clienteAtualizaRequest){
+        log.info("[start] ClienteController - atualizaInformacoes");
+        log.info("[cpf] {}", cpf);
+        clienteService.atualizaInformacoes(cpf, clienteAtualizaRequest);
+        log.info("[finish] ClienteController - atualizaInformacoes");
+    }
 }

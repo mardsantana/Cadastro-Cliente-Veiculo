@@ -1,12 +1,9 @@
 package cliente.veiculos.microsservicedecadastro.application.service;
 
 
-import cliente.veiculos.microsservicedecadastro.application.api.ClienteDetalhadoResponse;
+import cliente.veiculos.microsservicedecadastro.application.api.*;
 import cliente.veiculos.microsservicedecadastro.application.domain.Cliente;
-import cliente.veiculos.microsservicedecadastro.application.api.ClienteListResponse;
 import cliente.veiculos.microsservicedecadastro.application.repository.ClienteRepository;
-import cliente.veiculos.microsservicedecadastro.application.api.ClienteRequest;
-import cliente.veiculos.microsservicedecadastro.application.api.ClienteResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -40,5 +37,13 @@ public class ClienteApplicationService implements ClienteService {
         Cliente cliente = clienteRepository.buscaClientePorCPF(cpf);
         log.info("[finish] ClienteApplicationService - buscaClientePorCPF");
         return new ClienteDetalhadoResponse(cliente);
+    }
+    @Override
+    public void atualizaInformacoes(String cpf, ClienteAtualizaRequest clienteAtualizaRequest) {
+        log.info("[start] ClienteApplicationService - atualizaInformacoes");
+        Cliente cliente = clienteRepository.buscaClientePorCPF(cpf);
+        cliente.atualiza(clienteAtualizaRequest);
+        clienteRepository.save(cliente);
+        log.info("[finish] ClienteApplicationService - atualizaInformacoes");
     }
 }

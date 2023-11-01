@@ -1,6 +1,7 @@
 package cliente.veiculos.microsservicedecadastro.application.domain;
 
 
+import cliente.veiculos.microsservicedecadastro.application.api.ClienteAtualizaRequest;
 import cliente.veiculos.microsservicedecadastro.application.api.ClienteRequest;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -38,5 +39,10 @@ public class Cliente {
         this.telefone = clienteRequest.getTelefone();
         this.dataNascimento = clienteRequest.getDataNascimento();
         this.veiculo = clienteRequest.getVeiculo();
+    }
+    public void atualiza(ClienteAtualizaRequest clienteAtualizaRequest) {
+        this.nome = clienteAtualizaRequest.getNome();
+        this.telefone = clienteAtualizaRequest.getTelefone();
+        this.dataNascimento = clienteAtualizaRequest.getDataNascimento();
     }
 }
