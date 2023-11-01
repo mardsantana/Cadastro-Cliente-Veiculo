@@ -8,4 +8,5 @@ public interface ClienteRepository {
     Cliente save(Cliente cliente);
     List<Cliente> buscaTodosClientes();
     Cliente buscaClientePorCPF(String cpf);
+    void deleteCliente(Cliente cliente);
 }

@@ -9,4 +9,5 @@ public interface ClienteService {
     List<ClienteListResponse> buscaTodosClientes();
     ClienteDetalhadoResponse buscaClientePorCPF(String cpf);
     void atualizaInformacoes(String cpf, ClienteAtualizaRequest clienteAtualizaRequest);
+    void deleteCliente(String cpf);
 }
