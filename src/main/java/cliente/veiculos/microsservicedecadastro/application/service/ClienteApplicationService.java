@@ -46,4 +46,12 @@ public class ClienteApplicationService implements ClienteService {
         clienteRepository.save(cliente);
         log.info("[finish] ClienteApplicationService - atualizaInformacoes");
     }
+    @Override
+    public void deleteCliente(String cpf) {
+        log.info("[start] ClienteApplicationService - deleteCliente");
+        Cliente cliente = clienteRepository.buscaClientePorCPF(cpf);
+        clienteRepository.deleteCliente(cliente);
+        log.info("[finish] ClienteApplicationService - deleteCliente");
+
+    }
 }

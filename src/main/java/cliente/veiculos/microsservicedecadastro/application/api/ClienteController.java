@@ -51,4 +51,12 @@ public class ClienteController {
         clienteService.atualizaInformacoes(cpf, clienteAtualizaRequest);
         log.info("[finish] ClienteController - atualizaInformacoes");
     }
+    @DeleteMapping(value = "/{cpf}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deletaClientePorCPF(@PathVariable String cpf){
+        log.info("[start] ClienteContoller - deletaClientePorCPF");
+        log.info("[cpf] {}", cpf);
+        clienteService.deleteCliente(cpf);
+        log.info("[finish] ClienteContoller - deletaClientePorCPF");
+    }
 }
