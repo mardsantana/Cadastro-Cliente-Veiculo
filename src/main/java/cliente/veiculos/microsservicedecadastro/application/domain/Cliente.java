@@ -3,6 +3,7 @@ package cliente.veiculos.microsservicedecadastro.application.domain;
 
 import cliente.veiculos.microsservicedecadastro.application.api.ClienteAtualizaRequest;
 import cliente.veiculos.microsservicedecadastro.application.api.ClienteRequest;
+import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.domain.Veiculo;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,10 @@ import org.hibernate.validator.constraints.br.CPF;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 
 @Entity
 @Data
@@ -38,7 +42,10 @@ public class Cliente {
         this.cpf = clienteRequest.getCpf();
         this.telefone = clienteRequest.getTelefone();
         this.dataNascimento = clienteRequest.getDataNascimento();
-        this.veiculo = clienteRequest.getVeiculo();
+        this.veiculo = clienteRequest.getVeiculo()
+                .stream()
+                .map(Veiculo::new)
+                .collect(Collectors.toList());
     }
     public void atualiza(ClienteAtualizaRequest clienteAtualizaRequest) {
         this.nome = clienteAtualizaRequest.getNome();

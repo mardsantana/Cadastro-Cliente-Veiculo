@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.Value;
 
 @Data
-@Value
 public class ClienteResponse {
 
     private Long idCliente;

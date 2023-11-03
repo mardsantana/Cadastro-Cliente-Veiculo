@@ -1,13 +1,16 @@
 package cliente.veiculos.microsservicedecadastro.application.api;
 
 
-import cliente.veiculos.microsservicedecadastro.application.domain.Veiculo;
-import lombok.Value;
+import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.domain.Veiculo;
+import lombok.Data;
+
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Value
+@Data
 public class ClienteRequest {
 
     private String nome;

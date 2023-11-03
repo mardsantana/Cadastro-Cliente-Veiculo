@@ -1,10 +1,10 @@
 package cliente.veiculos.microsservicedecadastro.application.api;
 
-import lombok.Value;
+import lombok.Data;
 
 import java.time.LocalDate;
 
-@Value
+@Data
 public class ClienteAtualizaRequest {
 
     private String nome;
