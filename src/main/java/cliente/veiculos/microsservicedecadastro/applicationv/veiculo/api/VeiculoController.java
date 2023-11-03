@@ -44,4 +44,12 @@ public class VeiculoController {
         log.info("[finish] VeiculoController - buscaVeiculoPorPlaca");
         return veiculoDetalhado;
     }
+    @PutMapping(value = "/{placa}")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    void atualizaVeiculo(@PathVariable String placa, @Valid @RequestBody VeiculoAtualizaResponse veiculoAtualizaResponse){
+        log.info("[start] VeiculoController - atualizaVeiculo");
+        log.info("[placa] {}", placa);
+        veiculoService.atualizaInformacoesVeiculo(placa, veiculoAtualizaResponse);
+        log.info("[finish] VeiculoController - atualizaVeiculo");
+    }
 }

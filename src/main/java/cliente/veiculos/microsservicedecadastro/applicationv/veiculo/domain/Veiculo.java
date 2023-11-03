@@ -1,5 +1,6 @@
 package cliente.veiculos.microsservicedecadastro.applicationv.veiculo.domain;
 
+import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.api.VeiculoAtualizaResponse;
 import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.api.VeiculoRequest;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -35,5 +36,12 @@ public class Veiculo {
         this.placa = veiculo.getPlaca();
         this.ano = veiculo.getAno();
         this.fabricante = veiculo.getFabricante();
+    }
+
+    public void atualiza(VeiculoAtualizaResponse veiculoAtualizaResponse) {
+        this.modelo = veiculoAtualizaResponse.getModelo();
+        this.placa = veiculoAtualizaResponse.getPlaca();
+        this.ano = veiculoAtualizaResponse.getAno();
+        this.fabricante = veiculoAtualizaResponse.getFabricante();
     }
 }

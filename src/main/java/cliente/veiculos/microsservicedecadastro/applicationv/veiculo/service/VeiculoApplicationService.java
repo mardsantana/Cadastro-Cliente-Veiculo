@@ -1,10 +1,7 @@
 package cliente.veiculos.microsservicedecadastro.applicationv.veiculo.service;
 
-import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.api.VeiculoDetalhadoResponse;
-import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.api.VeiculoListResponse;
+import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.api.*;
 import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.repository.VeiculoRepository;
-import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.api.VeiculoRequest;
-import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.api.VeiculoResponse;
 import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.domain.Veiculo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -39,5 +36,13 @@ public class VeiculoApplicationService implements VeiculoService{
         Veiculo veiculo = veiculoRepository.BuscaPorPlaca(placa);
         log.info("[finish] VeiculoApplicationService - buscaVeiculosPorPlaca");
         return new VeiculoDetalhadoResponse(veiculo);
+    }
+    @Override
+    public void atualizaInformacoesVeiculo(String placa, VeiculoAtualizaResponse veiculoAtualizaResponse) {
+        log.info("[start] VeiculoApplicationService - atualizaInformacoesVeiculo");
+        Veiculo veiculo = veiculoRepository.BuscaPorPlaca(placa);
+        veiculo.atualiza(veiculoAtualizaResponse);
+        veiculoRepository.save(veiculo);
+        log.info("[finish] VeiculoApplicationService - atualizaInformacoesVeiculo");
     }
 }
