@@ -9,4 +9,5 @@ public interface VeiculoRepository {
     Veiculo save(Veiculo veiculo);
     List<Veiculo> buscaTodosVeiculos();
     Veiculo BuscaPorPlaca(String placa);
+    void deleteVeiculo(Veiculo veiculo);
 }

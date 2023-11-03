@@ -45,4 +45,11 @@ public class VeiculoApplicationService implements VeiculoService{
         veiculoRepository.save(veiculo);
         log.info("[finish] VeiculoApplicationService - atualizaInformacoesVeiculo");
     }
+    @Override
+    public void deleteVeiculo(String placa) {
+        log.info("[start] VeiculoApplicationService - deleteVeiculo");
+        Veiculo veiculo = veiculoRepository.BuscaPorPlaca(placa);
+        veiculoRepository.deleteVeiculo(veiculo);
+        log.info("[finish] VeiculoApplicationService - deleteVeiculo");
+    }
 }

@@ -9,4 +9,5 @@ public interface VeiculoService {
     List<VeiculoListResponse> buscaVeiculos();
     VeiculoDetalhadoResponse buscaVeiculosPorPlaca(String placa);
     void atualizaInformacoesVeiculo(String placa, VeiculoAtualizaResponse veiculoAtualizaResponse);
+    void deleteVeiculo(String placa);
 }

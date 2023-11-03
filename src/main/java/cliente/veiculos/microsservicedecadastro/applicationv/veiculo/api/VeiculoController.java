@@ -52,4 +52,12 @@ public class VeiculoController {
         veiculoService.atualizaInformacoesVeiculo(placa, veiculoAtualizaResponse);
         log.info("[finish] VeiculoController - atualizaVeiculo");
     }
+    @DeleteMapping(value = "/{placa}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deleteVeiculo(@PathVariable String placa){
+        log.info("[start] VeiculoController - deleteVeiculo");
+        log.info("[placa] {}", placa);
+        veiculoService.deleteVeiculo(placa);
+        log.info("[finish] VeiculoController - deleteVeiculo");
+    }
 }
