@@ -42,10 +42,7 @@ public class Cliente {
         this.cpf = clienteRequest.getCpf();
         this.telefone = clienteRequest.getTelefone();
         this.dataNascimento = clienteRequest.getDataNascimento();
-        this.veiculo = clienteRequest.getVeiculo()
-                .stream()
-                .map(Veiculo::new)
-                .collect(Collectors.toList());
+        this.veiculo = clienteRequest.getVeiculo();
     }
     public void atualiza(ClienteAtualizaRequest clienteAtualizaRequest) {
         this.nome = clienteAtualizaRequest.getNome();
