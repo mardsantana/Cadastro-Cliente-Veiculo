@@ -33,7 +33,7 @@ public class ClienteInfraRepository implements ClienteRepository {
     @Override
     public Cliente buscaClientePorCPF(String cpf) {
         log.info("[start] ClienteInfraRepository - buscaClientePorCPF");
-        Cliente cliente = (Cliente) clienteSpringDataJPARepository.findByCpf(cpf)
+        Cliente cliente = clienteSpringDataJPARepository.findByCpf(cpf)
                 .orElseThrow(() -> new RuntimeException("Cliente não Econtrado!!"));
         log.info("[finish] ClienteInfraRepository - buscaClientePorCPF");
         return cliente;

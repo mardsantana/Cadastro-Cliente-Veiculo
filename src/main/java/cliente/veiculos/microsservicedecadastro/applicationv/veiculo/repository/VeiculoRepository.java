@@ -8,4 +8,5 @@ import java.util.List;
 public interface VeiculoRepository {
     Veiculo save(Veiculo veiculo);
     List<Veiculo> buscaTodosVeiculos();
+    Veiculo BuscaPorPlaca(String placa);
 }

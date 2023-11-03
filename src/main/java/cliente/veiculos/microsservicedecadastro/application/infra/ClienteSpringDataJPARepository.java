@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface ClienteSpringDataJPARepository extends JpaRepository<Cliente, Long> {
 
-    Optional<Object> findByCpf(String cpf);
+    Optional<Cliente> findByCpf(String cpf);
 }

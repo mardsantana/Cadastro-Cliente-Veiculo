@@ -1,5 +1,6 @@
 package cliente.veiculos.microsservicedecadastro.applicationv.veiculo.service;
 
+import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.api.VeiculoDetalhadoResponse;
 import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.api.VeiculoListResponse;
 import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.repository.VeiculoRepository;
 import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.api.VeiculoRequest;
@@ -27,9 +28,16 @@ public class VeiculoApplicationService implements VeiculoService{
     }
     @Override
     public List<VeiculoListResponse> buscaVeiculos() {
-        log.info("[start] VeiculoServiceApplication - buscaVeiculos");
+        log.info("[start] VeiculoApplicationService - buscaVeiculos");
         List<Veiculo> veiculos = veiculoRepository.buscaTodosVeiculos();
-        log.info("[finish] VeiculoServiceApplication - buscaVeiculos");
+        log.info("[finish] VeiculoApplicationService - buscaVeiculos");
         return VeiculoListResponse.converte(veiculos);
+    }
+    @Override
+    public VeiculoDetalhadoResponse buscaVeiculosPorPlaca(String placa) {
+        log.info("[start] VeiculoApplicationService - buscaVeiculosPorPlaca");
+        Veiculo veiculo = veiculoRepository.BuscaPorPlaca(placa);
+        log.info("[finish] VeiculoApplicationService - buscaVeiculosPorPlaca");
+        return new VeiculoDetalhadoResponse(veiculo);
     }
 }

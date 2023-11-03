@@ -1,5 +1,6 @@
 package cliente.veiculos.microsservicedecadastro.applicationv.veiculo.api;
 
+import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.domain.Veiculo;
 import cliente.veiculos.microsservicedecadastro.applicationv.veiculo.service.VeiculoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -33,5 +34,14 @@ public class VeiculoController {
         List<VeiculoListResponse> veiculoCliente = veiculoService.buscaVeiculos();
         log.info("[finish] VeiculoController - buscaTodosVeiculos");
         return veiculoCliente;
+    }
+    @GetMapping(value = "/{placa}")
+    @ResponseStatus(code = HttpStatus.OK)
+    VeiculoDetalhadoResponse buscaVeiculoPorPlaca(@PathVariable String placa){
+        log.info("[start] VeiculoController - buscaVeiculoPorPlaca");
+        log.info("[placa] {}", placa);
+        VeiculoDetalhadoResponse veiculoDetalhado = veiculoService.buscaVeiculosPorPlaca(placa);
+        log.info("[finish] VeiculoController - buscaVeiculoPorPlaca");
+        return veiculoDetalhado;
     }
 }

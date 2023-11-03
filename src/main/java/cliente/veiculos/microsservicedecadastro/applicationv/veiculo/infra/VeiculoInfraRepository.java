@@ -30,4 +30,12 @@ public class VeiculoInfraRepository implements VeiculoRepository {
         log.info("[finish] VeiculoInfraRepository - buscaTodosVeiculos");
         return todosVeiculos;
     }
+    @Override
+    public Veiculo BuscaPorPlaca(String placa) {
+        log.info("[start] VeiculoInfraRepository - buscaPorPlaca");
+        Veiculo veiculo = veiculoSpringDataJPARepository.findByPlaca(placa)
+                        .orElseThrow(() -> new RuntimeException("Veículo não Encotrado, Chefia!"));
+        log.info("[finish] VeiculoInfraRepository - buscaPorPlaca");
+        return veiculo;
+    }
 }
